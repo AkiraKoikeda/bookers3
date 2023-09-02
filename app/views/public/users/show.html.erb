@@ -1,2 +1,26 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <%= render 'info', user: @user %>
+  </div>
+  <div class="row">
+    <%= render 'public/books/form', book: @book %>
+    <div class="col-1"></div>
+    <div class="col-8">
+      <h3>Books</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+          <tr>
+            <% @books.each do |book| %>
+            <td><%= book.name %></td>
+            <td><%= book.body %></td>
+            <% end %>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
