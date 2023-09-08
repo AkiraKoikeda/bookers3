@@ -1,6 +1,4 @@
 class Public::BooksController < ApplicationController
-  def new
-  end
 
   def index
     @books = Book.all
@@ -8,6 +6,7 @@ class Public::BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:ids])
   end
 
   def edit
