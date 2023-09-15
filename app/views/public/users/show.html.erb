@@ -7,7 +7,7 @@
     <div class="col-1"></div>
     <div class="col-8">
       <h3>Books</h3>
-      <table>
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th>Title</th>
@@ -15,7 +15,7 @@
           </tr>
           <tr>
             <% @books.each do |book| %>
-            <td><%= book.name %></td>
+            <td><%= book.title %></td>
             <td><%= book.body %></td>
             <% end %>
           </tr>
