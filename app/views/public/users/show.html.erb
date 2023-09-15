@@ -7,20 +7,7 @@
     <div class="col-1"></div>
     <div class="col-8">
       <h3>Books</h3>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Opinion</th>
-          </tr>
-          <tr>
-            <% @books.each do |book| %>
-            <td><%= book.title %></td>
-            <td><%= book.body %></td>
-            <% end %>
-          </tr>
-        </thead>
-      </table>
+     <%= render 'public/books/index', books: @books %>
     </div>
   </div>
 </div>
