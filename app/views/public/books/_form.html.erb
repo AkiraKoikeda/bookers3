@@ -2,7 +2,7 @@
   <h3>New book</h3>
   <%= form_with model: book do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :title %>
     <%= f.label :Opinion %>
     <%= f.text_area :body %>
     <%= f.submit 'Create Book' %>
