@@ -6,7 +6,7 @@
         <%= f.label :Name %>
         <%= f.text_field :name %>
         <%= f.label :Image %>
-
+        <%= f.file_field :image, placeholder: "プロフィール画像", accept: "image/*" %>
         <%= f.label :Introduction %>
         <%= f.text_area :introduction %>
         <%= f.submit %>
