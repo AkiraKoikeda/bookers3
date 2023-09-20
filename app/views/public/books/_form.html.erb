@@ -1,8 +1,10 @@
-<div class="col-3">
+
   <h3>New book</h3>
   <%= form_with model: book do |f| %>
-    <%= f.label :Title %>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <span><%= f.label :Title %></span>
+    <span><%= f.text_field :title %></span>
+  </div>
     <%= f.label :Opinion %>
     <%= f.text_area :body %>
     <%= f.submit 'Create Book' %>

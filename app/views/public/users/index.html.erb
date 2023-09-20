@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+      <%= render 'public/users/info', user: @user %>
+      <%= render 'public/books/form', book: @book %>
+    <div class="col-8">
+      <table class ="table table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Books</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= image_tag user.get_image(70,70) %></td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to user_path(user.id) do %>
+                <%= user.books.count %>件の投稿
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

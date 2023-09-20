@@ -1,6 +1,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Opinion</th>
     </tr>
@@ -8,6 +9,7 @@
   <tbody>
     <% books.each do |book| %>
     <tr>
+      <td><%= image_tag book.user.get_image(70,70) %></td>
       <td>
         <%= link_to book_path(book.id) do %>
           <%= book.title %>

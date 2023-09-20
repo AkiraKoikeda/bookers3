@@ -20,18 +20,28 @@ class Public::BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to books_path
+    if @book.destroy
+      redirect_to books_path
+    else
+      render show
+    end
   end
 
   def update
     @book = Book.find(params[:id])
+    unless user == current_user
+      redirect_to book_path(@book)
+    end
     @book.update(book_params)
     redirect_to book_path(@book)
   end
 
   def edit
     @book = Book.find(params[:id])
+    user = @book.user
+    unless user == current_user
+      redirect_to book_path(@book)
+    end
   end
 
   private
