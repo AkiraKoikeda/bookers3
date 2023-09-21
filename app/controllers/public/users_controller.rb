@@ -5,9 +5,17 @@ class Public::UsersController < ApplicationController
     @books = @user.books
   end
 
+  def index
+    @user = current_user
+    @book = Book.new
+    @users = User.all
+  end
 
   def edit
     @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      redirect_to user_path(@user)
+    end
   end
 
   def update
@@ -22,6 +30,6 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :body, :image)
+    params.require(:user).permit(:name, :body, :image, :intro)
   end
 end

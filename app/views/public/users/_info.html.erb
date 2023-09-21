@@ -1,5 +1,5 @@
 
-<div class="col-3">
+<div class="col-md-3">
   <h3>User info</h3>
   <table>
     <tr>
@@ -16,6 +16,9 @@
     </tr>
   </table>
   <% if current_user == user %>
-    <%= link_to 'edit', edit_user_path(user.id) %>
+    <div class='row'>
+      <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    </div>
   <% end %>
-</div>
