@@ -1,0 +1,27 @@
+<% if users.count != 0 %>
+  <table class ="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Books</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_image(70,70) %></td>
+        <td><%= user.name %></td>
+        <td>
+          <%= link_to user_path(user.id) do %>
+            <%= user.books.count %>件の投稿
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
