@@ -1,2 +1,30 @@
-<h1>Admin::Books#show</h1>
-<p>Find me in app/views/admin/books/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Book's user</h3>
+      <table>
+        <tr>
+          <td><%= image_tag @book.user.get_image(100,100) %></td>
+          <td>
+            <%= link_to admin_user_path(@book.user.id) do %>
+              <%= @book.user.name %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <h3>Book detail</h3>
+      <table class="table">
+        <tr>
+          <td>
+            <%= link_to book_path(@book.id) do %>
+              <%= @book.title %>
+            <% end %>
+          </td>
+          <td><%= @book.body %></td>
+            <td><%= link_to 'Edit', edit_admin_book_path(@book), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,24 @@
-<h1>Admin::Books#edit</h1>
-<p>Find me in app/views/admin/books/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Editing Book</h1>
+      <%= form_with model: @book, url: admin_book_path(@book.id) do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control book_title', id: "text" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :opinion %>
+        <%= f.text_area :body, class: 'form-control book_body' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-success' %>
+      </div>
+      <% end %>
+    </div>
+      <%= link_to 'Show', admin_book_path(@book) %>
+      |
+      <%= link_to 'Back', admin_books_path %>
+    </div>
+  </div>
+</div>
