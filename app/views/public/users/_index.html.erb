@@ -14,10 +14,16 @@
         <td><%= image_tag user.get_image(70,70) %></td>
         <td><%= user.name %></td>
         <td>
-          <%= link_to user_path(user.id) do %>
-            <%= user.books.count %>件の投稿
+          <% if user.signed_in? %>
+            <%= link_to user_path(user.id) do %>
+              <%= user.books.count %>件の投稿
+            <% end %>
+          <% else %>
+            <%= link_to admin_user_path(user.id) do %>
+              <%= user.books.count %>件の投稿
+            <% end %>
           <% end %>
-        </td>
+          </td>
       </tr>
       <% end %>
     </tbody>
